@@ -5,19 +5,20 @@ function App() {
   const [input, setInput] = useState("");
 
   const handleButtonClick = (value) => {
-    setInput((prevInput) => prevInput + value);
-  };
-
-  const handleClear = () => {
-    setInput("");
-  };
-
-  const handleCalculate = () => {
     try {
-      setInput(eval(input).toString());
+      if (value === "=") {
+        setInput(eval(input).toString());
+      } else {
+        setInput((prevInput) => prevInput + value);
+      }
     } catch (error) {
+      // Handle division by zero
       setInput("Error");
     }
+  };
+
+  const clearInput = () => {
+    setInput("");
   };
 
   return (
@@ -37,9 +38,9 @@ function App() {
         <button onClick={() => handleButtonClick("8")}>8</button>
         <button onClick={() => handleButtonClick("9")}>9</button>
         <button onClick={() => handleButtonClick("*")}>*</button>
+        <button onClick={clearInput}>C</button>
         <button onClick={() => handleButtonClick("0")}>0</button>
-        <button onClick={handleClear}>C</button>
-        <button onClick={handleCalculate}>=</button>
+        <button onClick={() => handleButtonClick("=")}>=</button>
         <button onClick={() => handleButtonClick("/")}>/</button>
       </div>
     </div>
