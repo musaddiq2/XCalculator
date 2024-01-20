@@ -5,7 +5,28 @@
   padding: 10px;
   text-align: center;
 }
+.display {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
 
+.display input {
+  border: none;
+  background-color: transparent;
+  font-size: 18px;
+  text-align: right;
+  margin-bottom: 5px;
+}
+
+.display p {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: right;
+}
 input {
   width: calc(100% - 20px);
   padding: 10px;
