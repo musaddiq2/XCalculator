@@ -7,7 +7,8 @@ function App() {
   const handleButtonClick = (value) => {
     try {
       if (value === "=") {
-        setInput(eval(input).toString());
+        const result = eval(input).toString();
+        setInput(result);
       } else {
         setInput((prevInput) => prevInput + value);
       }
