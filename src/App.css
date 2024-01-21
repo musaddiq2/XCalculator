@@ -14,11 +14,10 @@
 }
 
 .display input {
-  border: none;
-  background-color: transparent;
+  width: calc(100% - 20px);
+  padding: 10px;
   font-size: 18px;
-  text-align: right;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .display p {

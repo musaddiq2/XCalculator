@@ -11,7 +11,12 @@ function App() {
       setOutput("");
     } else if (value === "=") {
       try {
-        setInput(eval(input).toString());
+        const result = eval(input);
+        if (isNaN(result) || !isFinite(result)) {
+          setOutput("Error");
+        } else {
+          setInput(result.toString());
+        }
       } catch (error) {
         setOutput("Error");
       }
@@ -19,23 +24,6 @@ function App() {
       setInput(input + value);
     }
   };
-  // const handleButtonClick = (value) => {
-  //   try {
-  //     if (value === "=") {
-  //       const result = eval(input).toString();
-  //       setInput(result);
-  //     } else {
-  //       setInput( input + value);
-  //     }
-  //   } catch (error) {
-  //     // Handle division by zero
-  //     setInput("Error");
-  //   }
-  // };
-
-  // const clearInput = () => {
-  //   setInput("");
-  // };
 
   return (
     <div className="calculator">
